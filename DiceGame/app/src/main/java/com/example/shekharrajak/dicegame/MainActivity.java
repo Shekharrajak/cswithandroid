@@ -12,12 +12,14 @@ import android.os.Handler.Callback;
 import android.os.Message;
 import android.app.Activity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.graphics.*;
 import android.text.*;
 
 public class MainActivity extends Activity {
     ImageView dice_picture;		//reference to dice picture
+    EditText n;
     Random rng=new Random();	//generate random numbers
     SoundPool dice_sound = new SoundPool(1,AudioManager.STREAM_MUSIC,0);
     int sound_id;		//Used to control sound stream return by SoundPool
@@ -35,6 +37,7 @@ public class MainActivity extends Activity {
 
         //get reference to image widget
         dice_picture = (ImageView) findViewById(R.id.imageView1);
+        n=(EditText) findViewById(R.id.num);
         //link handler to callback
         handler=new Handler(callback);
     }
@@ -69,24 +72,29 @@ public class MainActivity extends Activity {
 
                 case 1:
                     dice_picture.setImageResource(R.drawable.one);
-
+                    n.setText("1");
 
 
                     break;
                 case 2:
                     dice_picture.setImageResource(R.drawable.two);
+                    n.setText("2");
                     break;
                 case 3:
                     dice_picture.setImageResource(R.drawable.three);
+                    n.setText("3");
                     break;
                 case 4:
                     dice_picture.setImageResource(R.drawable.four);
+                    n.setText("4");
                     break;
                 case 5:
                     dice_picture.setImageResource(R.drawable.five);
+                    n.setText("5");
                     break;
                 case 6:
                     dice_picture.setImageResource(R.drawable.six);
+                    n.setText("6");
                     break;
                 default:
             }
