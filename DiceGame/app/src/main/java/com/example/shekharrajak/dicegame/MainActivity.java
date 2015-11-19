@@ -13,6 +13,8 @@ import android.os.Message;
 import android.app.Activity;
 import android.view.View;
 import android.widget.ImageView;
+import android.graphics.*;
+import android.text.*;
 
 public class MainActivity extends Activity {
     ImageView dice_picture;		//reference to dice picture
@@ -22,13 +24,15 @@ public class MainActivity extends Activity {
     Handler handler;	//Post message to start roll
     Timer timer=new Timer();	//Used to implement feedback to user
     boolean rolling=false;		//Is die rolling?
-
+    //Canvas canvas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //load dice sound
         sound_id=dice_sound.load(this,R.raw.shake_dice,1);
+
+
         //get reference to image widget
         dice_picture = (ImageView) findViewById(R.id.imageView1);
         //link handler to callback
@@ -56,15 +60,18 @@ public class MainActivity extends Activity {
     }
 
     //Receives message from timer to start dice roll
-    Callback callback = new Callback() {
+    public Callback callback = new Callback() {
         public boolean handleMessage(Message msg) {
             //Get roll result
             //nextInt returns 0 to 5 for argument of 6
             //hence + 1
             switch(rng.nextInt(6)+1) {
+
                 case 1:
                     dice_picture.setImageResource(R.drawable.one);
-                    
+
+
+
                     break;
                 case 2:
                     dice_picture.setImageResource(R.drawable.two);

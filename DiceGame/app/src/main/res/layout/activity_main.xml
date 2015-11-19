@@ -4,8 +4,29 @@
     <ImageView android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
         android:onClick="HandleClick"
-        android:src="@drawable/dice3droll" />
+        android:src="@drawable/dice3droll"
+        android:layout_marginTop="51dp"
+        android:layout_alignEnd="@+id/score" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/score"
+        android:text="Score :"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="49dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/num"
+        android:text="0"
+        android:layout_below="@+id/score"
+        android:layout_alignStart="@+id/score"
+        android:layout_marginStart="24dp"
+        android:layout_alignEnd="@+id/imageView1" />
 </RelativeLayout>
